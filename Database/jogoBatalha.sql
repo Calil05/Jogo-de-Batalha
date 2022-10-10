@@ -59,6 +59,27 @@ insert  into `hard_enemies`(`hard_Code`,`hard_Nome`,`hard_Hp`,`hard_Forca`,`hard
 (4,'A Baleia',250,10,65,5,5),
 (5,'Ciclope',150,45,70,12,25);
 
+/*Table structure for table `items` */
+
+DROP TABLE IF EXISTS `items`;
+
+CREATE TABLE `items` (
+  `item_Code` int(11) NOT NULL AUTO_INCREMENT,
+  `item_Nome` varchar(50) NOT NULL,
+  `item_Preco` int(11) NOT NULL,
+  `item_Descricao` varchar(100) NOT NULL,
+  PRIMARY KEY (`item_Code`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+/*Data for the table `items` */
+
+insert  into `items`(`item_Code`,`item_Nome`,`item_Preco`,`item_Descricao`) values 
+(1,'Poção',30,'Recupera 30 de HP'),
+(2,'Poção Grande',85,'Recupera 85 de HP'),
+(3,'Poção Maxima',200,'Recupera todo o HP'),
+(4,'Scanner',70,'Vizualiza os Status de um Inimigo'),
+(5,'Seletor',300,'Seleciona o proximo Inimigo');
+
 /*Table structure for table `medium_enemies` */
 
 DROP TABLE IF EXISTS `medium_enemies`;

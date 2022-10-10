@@ -9,6 +9,8 @@ rand = 0
 
 Max_HP = 100
 
+Moedas = 0
+
 Hp = 100
 Forca = 500
 Defesa = 20
@@ -33,6 +35,8 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
     global Defesa
     global Agilidade
     global Arma
+    
+    global Moedas
 
     contador = 0
 
@@ -144,6 +148,8 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                 print("Agilidade: {}".format(Agilidade))
                 print("Arma: {}".format(Arma))
                 print(" ")
+                print("Moedas: {}".format(Moedas))
+                print(" ")
                 input("Prescione Enter para continuar")
                 os.system('cls') or None
 
@@ -228,6 +234,8 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                 print("Agilidade: {}".format(Agilidade))
                 print("Arma: {}".format(Arma))
                 print(" ")
+                print("Moedas: {}".format(Moedas))
+                print(" ")
                 print("Sua vez!")
                 print("---------------------------------")
                 input("Prescione Enter para Atacar")
@@ -245,8 +253,14 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                     print(" ")
                     break 
                 if M_Hp <=0:
-                    print("Você Venceu!")
-                    print("------------")
+
+                    num_moedas = randint(0, 5)
+                    Moedas = Moedas + num_moedas
+
+                    print("-=- Você Venceu! -=-")
+                    print("-----------------------")
+                    print("Você Recebeu {} moedas!".format(num_moedas))
+                    print("-----------------------")
                     print("Seus Status:")
                     print(" ")
                     print("Hp: {}".format(Hp))
@@ -276,6 +290,8 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                 print("Agilidade: {}".format(Agilidade))
                 print("Arma: {}".format(Arma))
                 print(" ")
+                print("Moedas: {}".format(Moedas))
+                print(" ")
                 print("Sua vez!")
                 print("---------------------------------")
                 input("Prescione Enter para Atacar")
@@ -293,8 +309,14 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                     print(" ")
                     break 
                 if M_Hp <=0:
-                    print("Você Venceu!")
-                    print("------------")
+
+                    num_moedas = randint(0, 5)
+                    Moedas = Moedas + num_moedas
+
+                    print("-=- Você Venceu! -=-")
+                    print("-----------------------")
+                    print("Você Recebeu {} moedas!".format(num_moedas))
+                    print("-----------------------")
                     print("Seus Status:")
                     print(" ")
                     print("Hp: {}".format(Hp))
@@ -322,6 +344,8 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                     print("Defesa: {}".format(Defesa))
                     print("Agilidade: {}".format(Agilidade))
                     print("Arma: {}".format(Arma))
+                    print(" ")
+                    print("Moedas: {}".format(Moedas))
                     print(" ")
                     input("Prescione Enter para continuar")
                     os.system('cls') or None
