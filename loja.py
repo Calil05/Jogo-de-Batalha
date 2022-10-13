@@ -1,5 +1,6 @@
 from random import randint
 import mysql.connector
+from time import sleep
 
 # ARQUIVO APENAS PARA TESTE E VIZUALIZAÇÃO DA FUNCIONALIDADE DA LOJA
 
@@ -8,7 +9,7 @@ con = mysql.connector.connect(host='localhost',database='jogo_batalha',username=
 rand = randint(1,5)
 rand2 = randint(1,5)
 
-Moedas = 50
+Moedas = 500
 
 if con.is_connected():
 
@@ -52,39 +53,50 @@ b2 = "."
 item2_Descricao = ''.join(x for x in item2_Descricao if x not in b2)    
 item2_Descricao = item2_Descricao.replace(',','.')
 
-print("-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-print(" -=- Bem Vindo a Loja -=- ")
-print("-=-=-=-=-=-=-=-=-=-=-=-=-=-")
-print("Moedas : {}".format(Moedas))
-print(" ")
-print(" Deseja comprar algo? ") 
-print(" ")
-print("1 - {}".format(item_Nome))
-print("------------------------")
-print(item_Descricao)
-print("Preco: {} moedas".format(item_Preco))
-print(" ")
-print("2 - {}".format(item2_Nome))
-print("------------------------")
-print(item2_Descricao)
-print("Preco: {} moedas".format(item2_Preco))
-print(" ")
-print("3 - Não comprar nada")
-compra = int(input())
+while True:
 
-if compra == 1:
-    if Moedas >= item_Preco:
-        print("{} adiquirido!".format(item_Nome))
-        Moedas = Moedas - item_Preco
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print(" -=- Bem Vindo a Loja -=- ")
+    print("-=-=-=-=-=-=-=-=-=-=-=-=-=-")
+    print("Moedas : {}".format(Moedas))
+    print(" ")
+    print(" Deseja comprar algo? ") 
+    print(" ")
+    print("1 - {}".format(item_Nome))
+    print("------------------------")
+    print(item_Descricao)
+    print("Preco: {} moedas".format(item_Preco))
+    print(" ")
+    print("2 - {}".format(item2_Nome))
+    print("------------------------")
+    print(item2_Descricao)
+    print("Preco: {} moedas".format(item2_Preco))
+    print(" ")
+    print("3 - Não comprar nada")
+    compra = int(input())
+
+    if compra == 1:
+        if Moedas >= item_Preco:
+            print("{} adiquirido!".format(item_Nome))
+            Moedas = Moedas - item_Preco
+            break
+        else:
+            print("Você não possui moedas o suficiente")
+            sleep(1)
+
+    elif compra == 2:
+        if Moedas >= item2_Preco:
+            print("{} adiquirido!".format(item2_Nome))
+            Moedas = Moedas - item2_Preco
+            break
+        else:
+            print("Você não possui moedas o suficiente")
+            sleep(1)
+
+    elif compra == 3:
+        print("Não comprou nada!")
+        break
+    
     else:
-        print("Você não possui moedas o suficiente")
-
-if compra == 2:
-    if Moedas >= item2_Preco:
-        print("{} adiquirido!".format(item2_Nome))
-        Moedas = Moedas - item2_Preco
-    else:
-        print("Você não possui moedas o suficiente")
-
-if compra == 3:
-    print("Não comprou nada!")
+        print("Alternativa Invalida")
+        sleep(1)
