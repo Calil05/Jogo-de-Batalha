@@ -14,7 +14,7 @@ Moedas = 0
 Hp = 100
 Forca = 500
 Defesa = 20
-Agilidade = 100
+Agilidade = 1
 Arma = 10
 
 M_Nome = "a"
