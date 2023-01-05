@@ -1,57 +1,26 @@
 from random import randint
-import mysql.connector
 from time import sleep
+import json
 
-# ARQUIVO APENAS PARA TESTE E VIZUALIZAÇÃO DA FUNCIONALIDADE DA LOJA
-
-con = mysql.connector.connect(host='localhost',database='jogo_batalha',username='root',password='masterkey')
-
-rand = randint(1,5)
-rand2 = randint(1,5)
+file = "./Database/itens.json"
 
 Moedas = 500
 
-if con.is_connected():
+Itens = []
 
-    cursor = con.cursor()
-    cursor.execute("select item_Nome from items where item_code = %s", (rand,))
-    item_Nome = cursor.fetchone()
-    cursor.execute("select item_Preco from items where item_code = %s", (rand,))
-    item_Preco = cursor.fetchone()
-    cursor.execute("select item_Descricao from items where item_code = %s", (rand,))
-    item_Descricao = cursor.fetchone()
+for i in range(2):
 
-    cursor = con.cursor()
-    cursor.execute("select item_Nome from items where item_code = %s", (rand2,))
-    item2_Nome = cursor.fetchone()
-    cursor.execute("select item_Preco from items where item_code = %s", (rand2,))
-    item2_Preco = cursor.fetchone()
-    cursor.execute("select item_Descricao from items where item_code = %s", (rand2,))
-    item2_Descricao = cursor.fetchone()
-  
-a = "."
-item_Nome = ''.join(x for x in item_Nome if x not in a)    
-item_Nome = item_Nome.replace(',','.')
+    rand = randint(1, 5)
 
-i_preco = [str(i) for i in item_Preco] 
-item_Preco = str("".join(i_preco))
-item_Preco = int(item_Preco)
+    with open (file) as base:
+        temp = json.load(base)
+        for entry in temp:
+            Item_ID = entry["id"]
 
-b = "."
-item_Descricao = ''.join(x for x in item_Descricao if x not in b)    
-item_Descricao = item_Descricao.replace(',','.')
-
-a2 = "."
-item2_Nome = ''.join(x for x in item2_Nome if x not in a2)    
-item2_Nome = item2_Nome.replace(',','.')
-
-i2_preco = [str(i) for i in item2_Preco] 
-item2_Preco = str("".join(i2_preco))
-item2_Preco = int(item2_Preco)
-
-b2 = "."
-item2_Descricao = ''.join(x for x in item2_Descricao if x not in b2)    
-item2_Descricao = item2_Descricao.replace(',','.')
+            if Item_ID == rand:
+                Itens.append(entry["nome"])
+                Itens.append(entry["valor"])
+                Itens.append(entry["desc"])
 
 while True:
 
@@ -62,32 +31,32 @@ while True:
     print(" ")
     print(" Deseja comprar algo? ") 
     print(" ")
-    print("1 - {}".format(item_Nome))
+    print("1 - {}".format(Itens[0]))
     print("------------------------")
-    print(item_Descricao)
-    print("Preco: {} moedas".format(item_Preco))
+    print(Itens[2])
+    print("Preco: {} moedas".format(Itens[1]))
     print(" ")
-    print("2 - {}".format(item2_Nome))
+    print("2 - {}".format(Itens[3]))
     print("------------------------")
-    print(item2_Descricao)
-    print("Preco: {} moedas".format(item2_Preco))
+    print(Itens[5])
+    print("Preco: {} moedas".format(Itens[4]))
     print(" ")
     print("3 - Não comprar nada")
-    compra = int(input())
+    compra = int(input())            
 
     if compra == 1:
-        if Moedas >= item_Preco:
-            print("{} adiquirido!".format(item_Nome))
-            Moedas = Moedas - item_Preco
+        if Moedas >= Itens[1]:
+            print("{} adiquirido!".format(Itens[0]))
+            Moedas = Moedas - Itens[1]
             break
         else:
             print("Você não possui moedas o suficiente")
             sleep(1)
 
     elif compra == 2:
-        if Moedas >= item2_Preco:
-            print("{} adiquirido!".format(item2_Nome))
-            Moedas = Moedas - item2_Preco
+        if Moedas >= Itens[4]:
+            print("{} adiquirido!".format(Itens[3]))
+            Moedas = Moedas - Itens[4]
             break
         else:
             print("Você não possui moedas o suficiente")

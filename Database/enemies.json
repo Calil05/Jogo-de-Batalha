@@ -1,0 +1,167 @@
+[
+    {
+        "id": 1,
+        "dificuldade": 1,
+        "nome": "Rato Gigante",
+        "hp": 40,
+        "forca": 25,
+        "defesa": 20,
+        "agilidade": 30,
+        "arma": 5 
+    },
+
+    {
+        "id": 2,
+        "dificuldade": 1,
+        "nome": "Slime",
+        "hp": 40,
+        "forca": 15,
+        "defesa": 35,
+        "agilidade": 5,
+        "arma": 15 
+    },
+
+    {
+        "id": 3,
+        "dificuldade": 1,
+        "nome": "Cobra",
+        "hp": 70,
+        "forca": 20,
+        "defesa": 15,
+        "agilidade": 30,
+        "arma": 10 
+    },
+
+    {
+        "id": 4,
+        "dificuldade": 1,
+        "nome": "O Baratao",
+        "hp": 80,
+        "forca": 10,
+        "defesa": 20,
+        "agilidade": 10,
+        "arma":7 
+    },
+
+    {
+        "id": 5,
+        "dificuldade": 1,
+        "nome": "Aranha",
+        "hp": 30,
+        "forca": 15,
+        "defesa": 10,
+        "agilidade": 15,
+        "arma":15 
+    },
+
+    {
+        "id": 6,
+        "dificuldade": 2,
+        "nome": "Tigre",
+        "hp": 65,
+        "forca": 30,
+        "defesa": 20,
+        "agilidade": 23,
+        "arma": 10 
+    },
+    
+    {
+        "id": 7,
+        "dificuldade": 2,
+        "nome": "Esqueleto",
+        "hp": 30,
+        "forca": 60,
+        "defesa": 20,
+        "agilidade": 35,
+        "arma": 13 
+    },
+
+    {
+        "id": 8,
+        "dificuldade": 2,
+        "nome": "Lartaguixa",
+        "hp": 40,
+        "forca": 30,
+        "defesa": 25,
+        "agilidade": 45,
+        "arma": 5 
+    },
+
+    {
+        "id": 9,
+        "dificuldade": 2,
+        "nome": "Zumbi",
+        "hp": 60,
+        "forca": 70,
+        "defesa": 15,
+        "agilidade": 5,
+        "arma": 15 
+    },
+
+    {
+        "id": 10,
+        "dificuldade": 2,
+        "nome": "Centauro",
+        "hp": 130,
+        "forca": 20,
+        "defesa": 40,
+        "agilidade": 3,
+        "arma": 10 
+    },
+
+    {
+        "id": 11,
+        "dificuldade": 3,
+        "nome": "Ogroide",
+        "hp": 100,
+        "forca": 40,
+        "defesa": 30,
+        "agilidade": 10,
+        "arma": 15 
+    },
+
+    {
+        "id": 12,
+        "dificuldade": 3,
+        "nome": "Minotauro",
+        "hp": 90,
+        "forca": 50,
+        "defesa": 35,
+        "agilidade": 25,
+        "arma": 20 
+    },
+
+    {
+        "id": 13,
+        "dificuldade": 3,
+        "nome": "Serpente Voadora",
+        "hp": 50,
+        "forca": 70,
+        "defesa": 15,
+        "agilidade": 50,
+        "arma": 18 
+    },
+
+    {
+        "id": 14,
+        "dificuldade": 3,
+        "nome": "A Baleia",
+        "hp": 250,
+        "forca": 10,
+        "defesa": 65,
+        "agilidade": 5,
+        "arma": 5 
+    },
+
+    {
+        "id": 15,
+        "dificuldade": 3,
+        "nome": "Ciclope",
+        "hp": 150,
+        "forca": 45,
+        "defesa": 70,
+        "agilidade": 12,
+        "arma": 25 
+    }
+
+]

@@ -10,10 +10,10 @@ Arma = 10
 
 contador = 0
 
-atributos = ['HP','Força','Defesa','Agilidade','Arma']
+atributos = ['HP','Força','Defesa','Agilidade']
 
 randValue = []
-randStat = sample(atributos, 3)
+randStat = sample(atributos, 2)
 
 for i in range(3):
     if contador <= 5:
@@ -41,13 +41,9 @@ if randStat[0] == "HP":
 
 if randStat[1] == "HP":
     randValue[1] = randint(10, 25)
-  
-if randStat[2] == "HP":
-    randValue[2] = randint(10, 25)
 
 print("1 - Bonus de +{} de {}".format(randValue[0], randStat[0]))
 print("2 - Bonus de +{} de {}".format(randValue[1], randStat[1]))
-print("3 - Bonus de +{} de {}".format(randValue[2], randStat[2]))
 escolhaBonus = input()
 
 if escolhaBonus == "1":
@@ -62,9 +58,6 @@ if escolhaBonus == "1":
 
     elif randStat[0] == "Agilidade":
         Agilidade += randValue[0]
-    
-    elif randStat[0] == "Arma":
-        Arma += randValue[0]
 
 elif escolhaBonus == "2":
     if randStat[1] == "HP":
@@ -78,22 +71,3 @@ elif escolhaBonus == "2":
 
     elif randStat[1] == "Agilidade":
         Agilidade += randValue[1]
-    
-    elif randStat[1] == "Arma":
-        Arma += randValue[1]
-
-elif escolhaBonus == "3":
-    if randStat[2] == "HP":
-        Hp += randValue[2]
-
-    elif randStat[2] == "Força":
-        Forca += randValue[2]
-    
-    elif randStat[2] == "Defesa":
-        Defesa += randValue[2]
-
-    elif randStat[2] == "Agilidade":
-        Agilidade += randValue[2]
-    
-    elif randStat[2] == "Arma":
-        Arma += randValue[2]

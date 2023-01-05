@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "nome": "Pocao",
+        "valor": 30,
+        "desc": "Recupera 30 de HP" 
+    },
+
+    {
+        "id": 2,
+        "nome": "Pocao Grande",
+        "valor": 85,
+        "desc": "Recupera 85 de HP" 
+    },
+
+    {
+        "id": 3,
+        "nome": "Pocao Maxima",
+        "valor": 200,
+        "desc": "Recupera Todo o HP" 
+    },
+
+    {
+        "id": 4,
+        "nome": "Scanner",
+        "valor": 70,
+        "desc": "Vizualiza o Status de um inimigo" 
+    },
+
+    {
+        "id": 5,
+        "nome": "Seletor",
+        "valor": 300,
+        "desc": "Seleciona o Proximo Inimigo" 
+    }
+]
