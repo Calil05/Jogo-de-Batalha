@@ -1,12 +1,10 @@
-import mysql.connector
 from random import randint, sample
 from time import sleep
+from loja import Ativa_Loja
 import os
 import json
 
 file = "./Database/enemies.json"
-
-con = mysql.connector.connect(host='localhost',database='jogo_batalha',username='root',password='masterkey')
 
 rand = 0
 
@@ -15,9 +13,9 @@ Max_HP = 100
 Moedas = 0
 
 Hp = 100
-Forca = 20
+Forca = 2000
 Defesa = 15
-Agilidade = 15
+Agilidade = 1500
 Arma = 10
 
 M_Nome = "a"
@@ -28,6 +26,9 @@ M_Agilidade = 0
 M_Arma = 0
 
 contador = 0
+
+num_Loja = 1
+loja_Ativada = 0
 
 def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador):
 
@@ -41,16 +42,22 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
     
     global Moedas
 
+    global num_Loja
+    global loja_Ativada
+
     contador = 0
 
     while Hp > 0:
 
         rand = (randint(1,5))
+        
+        chance_Loja = randint(num_Loja, 100)
+        chance_Loja2 = randint(2, 10)
 
-        atributos = ['HP','Força','Defesa','Agilidade','Arma']
+        atributos = ['HP','Força','Defesa','Agilidade']
 
         randValue = []
-        randStat = sample(atributos, 3)
+        randStat = sample(atributos, 2)
 
         if contador <=10:
 
@@ -400,7 +407,9 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                         print(" ")
                         break 
 
-            if M_Hp <= 0 and contador%2 == 0:            
+            if M_Hp <= 0 and contador%2 == 0:       
+
+                #Ativa_Loja(num_moedas)     
 
                 for i in range(3):
                     if contador <= 5:
@@ -431,6 +440,7 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
 
                 while True:
 
+                    #print("{} + {} --- {}".format(num_Loja, chance_Loja2, chance_Loja)) -- Teste Chance da Loja Aparecer
                     print("---------------------------")
                     print("-=- Escolha seu Bonus: -=-")
                     print("---------------------------")
@@ -507,6 +517,16 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                     Hp = Max_HP
                     sleep(1)
                     os.system('cls') or None
+
+            if num_Loja >= 100:
+                num_Loja = 100
+
+            if num_Loja == chance_Loja:
+                Ativa_Loja(num_moedas)
+                loja_Ativada += 1
+                num_Loja = 1
+            else:
+                num_Loja += 2*chance_Loja2-loja_Ativada
 
         contador = contador+1
 
