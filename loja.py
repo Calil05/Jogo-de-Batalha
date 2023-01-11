@@ -9,6 +9,10 @@ Moedas = 500
 
 Itens = []
 
+Hp = 0
+Max_HP = 0
+
+
 def Ativa_Loja(Moedas):
 
     for l in range(2):
@@ -45,12 +49,16 @@ def Ativa_Loja(Moedas):
         print("Preco: {} moedas".format(Itens[4]))
         print(" ")
         print("3 - Não comprar nada")
-        compra = int(input())            
+        compra = int(input())
+        print(" ")
+        sleep(1)            
 
         if compra == 1:
             if Moedas >= Itens[1]:
                 print("{} adiquirido!".format(Itens[0]))
-                Moedas = Moedas - Itens[1]
+                Item_Comprado = Itens[0]
+                Coin = Itens[1]
+                sleep(1)
                 break
             else:
                 print("Você não possui moedas o suficiente")
@@ -60,7 +68,9 @@ def Ativa_Loja(Moedas):
         elif compra == 2:
             if Moedas >= Itens[4]:
                 print("{} adiquirido!".format(Itens[3]))
-                Moedas = Moedas - Itens[4]
+                Item_Comprado = Itens[3]
+                Coin = Itens[4]
+                sleep(1)
                 break
             else:
                 print("Você não possui moedas o suficiente")
@@ -69,6 +79,9 @@ def Ativa_Loja(Moedas):
 
         elif compra == 3:
             print("Não comprou nada!")
+            Item_Comprado = "Nada"
+            Coin = 0
+            sleep(1)
             os.system('cls') or None
             break
         
@@ -76,3 +89,48 @@ def Ativa_Loja(Moedas):
             print("Alternativa Invalida")
             sleep(1)
             os.system('cls') or None
+    
+    return Item_Comprado, Coin
+    
+
+# Função Para a Utilização de Itens:
+
+def Utiliza_Pocao(item, Hp, Max_HP):
+
+    if item == "Pocao":
+        
+        if Hp >= Max_HP:
+            rec = Max_HP - Hp
+        else:
+             rec = 30
+
+        print("Recuperou 30 de HP")
+        sleep(1)
+        os.system('cls') or None
+
+    elif item == "Pocao Grande":
+
+        if Hp >= Max_HP:
+            rec = Max_HP - Hp
+        else:
+             rec = 80
+
+        print("Recuperou 80 de HP")
+        sleep(1)
+        os.system('cls') or None
+
+    elif item == "Pocao Maxima":
+
+        rec = Max_HP - Hp
+
+        print("Recuperou Todo o HP")
+        sleep(1)
+        os.system('cls') or None
+
+    return rec
+
+
+#Ativa_Loja(Moedas)
+#Ativa_Loja(Moedas)
+
+#Utiliza_Itens(Item_Comprado)

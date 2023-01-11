@@ -1,6 +1,6 @@
 from random import randint, sample
 from time import sleep
-from loja import Ativa_Loja
+from loja import Ativa_Loja, Utiliza_Pocao
 import os
 import json
 
@@ -10,9 +10,9 @@ rand = 0
 
 Max_HP = 100
 
-Moedas = 0
+Moedas = 500
 
-Hp = 100
+Hp = 20
 Forca = 2000
 Defesa = 15
 Agilidade = 1500
@@ -51,6 +51,9 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
 
         rand = (randint(1,5))
         
+        if num_Loja >= 100:
+            num_Loja = 100
+
         chance_Loja = randint(num_Loja, 100)
         chance_Loja2 = randint(2, 10)
 
@@ -440,7 +443,7 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
 
                 while True:
 
-                    #print("{} + {} --- {}".format(num_Loja, chance_Loja2, chance_Loja)) -- Teste Chance da Loja Aparecer
+                    print("{} + {} --- {}".format(num_Loja, chance_Loja2, chance_Loja)) #-- Teste Chance da Loja Aparecer
                     print("---------------------------")
                     print("-=- Escolha seu Bonus: -=-")
                     print("---------------------------")
@@ -522,11 +525,19 @@ def batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador
                 num_Loja = 100
 
             if num_Loja == chance_Loja:
-                Ativa_Loja(num_moedas)
+                Item_Comprado, Coin = Ativa_Loja(Moedas)
+                Moedas -= Coin
+
+                if "Pocao" in Item_Comprado:
+                    rec = Utiliza_Pocao(Item_Comprado, Hp, Max_HP)
+                    Hp += rec
+                else:
+                    os.system('cls') or None
+                Item_Comprado = " "
                 loja_Ativada += 1
                 num_Loja = 1
             else:
-                num_Loja += 2*chance_Loja2-loja_Ativada
+                num_Loja += 100*chance_Loja2-loja_Ativada
 
         contador = contador+1
 

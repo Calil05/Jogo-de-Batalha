@@ -6,10 +6,12 @@ print("-=--(+)--=-------------=--(+)--=-")
 print("-=-=-    Jogo de Batalha    -=-=-")
 print("-=--(+)--=-------------=--(+)--=-")
 print(" ")
-print(" 1 - Novo Jogo")
-print(" 2 - Continuar")
-print(" 3 - Sair")
-escolha_jogo = int(input())
+print("---------------------------------")
+print("- Prescione Enter pra Iniciar! - ")
+print("---------------------------------")
+input("")
+sleep(0.5)
+os.system('cls') or None
 
 
 batalha(M_Nome, M_Hp, M_Forca, M_Defesa, M_Agilidade, M_Arma, rand, contador)
